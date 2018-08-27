@@ -1,0 +1,17 @@
+<div class="header">
+  <h1><%= @post.name %></h1>
+</div>
+<img src="<%= @post.image_link %>" alt="">
+<div class="text-body">
+  <p>Type: <%= @post.type %></p>
+  <p>Species: <%= @post.species %></p>
+  <p>Abilities: <%= @post.abilities %></p>
+  <p>Description: <%= @post.description %></p>
+</div>
+<div class="edit">
+  <a href="/pokemon/<%= @post.id %>/edit">Edit</a>
+</div>
+<form class="submit" action="<%= @post.id %>" method="POST">
+  <input id="button" type="hidden" name="_method" value="DELETE">
+  <input id="button" type="submit" name="" value="Delete">
+</form>

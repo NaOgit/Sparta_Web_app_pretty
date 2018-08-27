@@ -1,0 +1,32 @@
+<form action="/pokemon/<%= @post.id %>" method="post">
+  <div class="label-box">
+    <label>Image: </label>
+    <input id="input-box" type="text" name="image_link" placeholder="Enter URL" value="<%= @post.image_link %>">
+  </div>
+  <div class="label-box">
+    <label>Name: </label>
+    <input id="input-box" type="text" name="name" placeholder="Enter a name" value="<%= @post.name %>">
+  </div>
+  <div class="label-box">
+  <label>Type: </label>
+    <input id="input-box" type="text" name="type" placeholder="Type" value="<%= @post.type %>">
+  </div>
+  <div class="label-box">
+  <label>Species: </label>
+    <input id="input-box" type="text" name="species" placeholder="Species" value="<%= @post.species %>">
+  </div>
+  <div class="label-box">
+  <label>Abilities: </label>
+    <input id="input-box" type="text" name="abilities" placeholder="Abilities" value="<%= @post.abilities %>">
+  </div>
+  <div class="label-box">
+    <label>Description: </label>
+    <textarea id="input-box" name="description" placeholder="Description" ><%= @post.description %></textarea>
+  </div>
+  <div class="submit">
+    <input id="button" type="submit" value="Save Pokemon">
+  </div>
+  <% if(@post.id) %>
+    <input id="button" type="hidden" name="_method" value="PUT">
+  <% end %>
+</form>

@@ -1,0 +1,78 @@
+body {
+  background-image: url(/images/blackbg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container {
+  box-sizing: border-box;
+  width: 800px;
+  text-align: center;
+  color: white;
+  font-family: 'Raleway', sans-serif;
+  margin: 10px auto;
+}
+
+.header img {
+  width: 100px
+}
+
+.header {
+  padding-top: 20px;
+  text-transform: uppercase;
+}
+
+.text-body {
+  box-sizing: border-box;
+  padding: 10px 10px;
+  background-color: grey;
+  opacity: 0.9;
+  border-radius: 2%;
+}
+.edit {
+  margin: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: #EACBCB;
+  text-transform: uppercase;
+}
+
+a:hover {
+  color: #821F1F;
+}
+.list-nav {
+  float: left;
+}
+
+.new-nav {
+  float: right;
+}
+
+.label-box {
+  width: 400px;
+  margin: 10px auto;
+}
+
+#input-box {
+  width: 300px;
+  float: right;
+}
+
+.submit {
+  margin: 20px auto;
+}
+
+#button {
+  background-color: #D02929;
+  padding: 5px;
+  color: white;
+  border-radius: 5%;
+  border: 2px solid white;
+  cursor: pointer;
+}
+
+#button:hover {
+  background-color: #F89E9E;
+}
