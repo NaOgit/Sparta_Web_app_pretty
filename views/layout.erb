@@ -4,10 +4,11 @@
     <meta charset="utf-8">
     <title><%= @title %></title>
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" type="text/css" href="<%= url("/css/style.css")%>">
   </head>
   <body>
-    <div class="container">
+    <div class="container animated zoomIn">
     <%= erb(:'partials/navigation', :layout => false) %>
     <%= yield %>
     </div>
