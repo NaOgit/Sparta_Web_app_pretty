@@ -1,5 +1,5 @@
 class Post
-  attr_accessor(:id, :name, :type, :species, :abilities, :description)
+  attr_accessor(:id, :image_link, :name, :type, :species, :abilities, :description)
   # A method to connect to database
   def self.open_connection
     # Tell it to go to the correct database
@@ -10,9 +10,9 @@ class Post
     conn = Post.open_connection
 
     if (!self.id)
-      sql = "INSERT INTO post (name, type, species, abilities, description) VALUES ('#{self.name}', '#{self.type}', '#{self.species}', '#{self.abilities}', '#{self.description}')"
+      sql = "INSERT INTO post (image_link, name, type, species, abilities, description) VALUES ('#{image_link}', '#{self.name}', '#{self.type}', '#{self.species}', '#{self.abilities}', '#{self.description}')"
     else
-      sql = "UPDATE post SET name='#{self.name}', type='#{self.type}', species='#{self.species}', abilities='#{self.abilities}', description='#{self.description}' WHERE id = #{self.id}"
+      sql = "UPDATE post SET image_link='#{self.image_link}', name='#{self.name}', type='#{self.type}', species='#{self.species}', abilities='#{self.abilities}', description='#{self.description}' WHERE id = #{self.id}"
     end
 
     conn.exec(sql)
@@ -22,7 +22,7 @@ class Post
   def self.all
     conn = self.open_connection
 
-    sql = "SELECT id, name, type, species FROM post ORDER BY id"
+    sql = "SELECT id, image_link, name, type, species, abilities, description FROM post ORDER BY id"
 
     results = conn.exec(sql)
     # loop through return data
@@ -61,6 +61,7 @@ class Post
     post = Post.new
 
     post.id = post_data['id']
+    post.image_link = post_data['image_link']
     post.name = post_data['name']
     post.type = post_data['type']
     post.species = post_data['species']

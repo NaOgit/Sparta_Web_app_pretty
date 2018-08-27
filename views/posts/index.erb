@@ -1,11 +1,16 @@
-<div class="header">
-  <img src="images/pokeball.png" alt="">
-  <h1>Welcome to the Pokedex</h1>
+<div class="container">
+<div class="inner-box">
+  <div class="header">
+    <img src="images/pokeball.png" alt="">
+    <h1>Welcome to the Pokedex</h1>
+  </div>
+    <!-- ERB evaluate -->
+  <% @post.each do |post| %>
+  <div>
+    <img src="<%= post.image_link %>" alt="">
+    <h3><a href="/pokemon/<%= post.id %>"><%= post.name %></a></h3>
+    <p><%= post.species %></p>
+  </div>
+  <% end %>
 </div>
-  <!-- ERB evaluate -->
-<% @post.each do |post| %>
-<div>
-  <h3><a href="/pokemon/<%= post.id %>"><%= post.name %></a></h3>
-  <p><%= post.species %></p>
 </div>
-<% end %>

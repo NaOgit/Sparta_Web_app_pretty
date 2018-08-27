@@ -36,6 +36,7 @@ class PostsController < Sinatra::Base
 
   post "/pokemon/" do
     post = Post.new
+    post.image_link = params[:image_link]
     post.name = params[:name]
     post.type = params[:type]
     post.species = params[:species]
@@ -49,6 +50,7 @@ class PostsController < Sinatra::Base
   end
 
   get "/pokemon/:id" do
+
     id = params[:id].to_i
     @post = Post.find(id)
     # erb => go look for the layout field first
@@ -67,6 +69,7 @@ class PostsController < Sinatra::Base
     id = params[:id].to_i
 
     post = Post.find(id)
+    post.image_link = params[:image_link]
     post.name = params[:name]
     post.type = params[:type]
     post.species = params[:species]
@@ -75,7 +78,7 @@ class PostsController < Sinatra::Base
 
     post.save
 
-    redirect '/pokemon/'
+    redirect '/pokemon'
   end
 
   delete "/pokemon/:id" do
@@ -86,10 +89,4 @@ class PostsController < Sinatra::Base
     redirect "/pokemon"
 
   end
-
-
-
-
-
-
 end

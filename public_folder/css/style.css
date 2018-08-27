@@ -1,5 +1,7 @@
 body {
-  background-image: url(/images/bg.jpg);
+  background-image: url(/images/blackbg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .container {
@@ -9,7 +11,6 @@ body {
   color: white;
   font-family: 'Raleway', sans-serif;
   margin: 10px auto;
-
 }
 
 .header img {
@@ -19,6 +20,17 @@ body {
 .header {
   padding-top: 20px;
   text-transform: uppercase;
+}
+
+.text-body {
+  box-sizing: border-box;
+  padding: 10px 10px;
+  background-color: grey;
+  opacity: 0.9;
+  border-radius: 2%;
+}
+.edit {
+  margin: 10px;
 }
 
 a {
@@ -38,17 +50,6 @@ a:hover {
   float: right;
 }
 
-/* .labe-box {
-  box-sizing: border-box;
-  width: 500px;
-} */
-
-.label {
-  /* box-sizing: border-box;
-  width: 100px;
-  float: left; */
-}
-
 .label-box {
   width: 400px;
   margin: 10px auto;
@@ -60,7 +61,7 @@ a:hover {
 }
 
 .submit {
-  margin: 40px auto;
+  margin: 20px auto;
 }
 
 #button {
