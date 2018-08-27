@@ -1,8 +1,11 @@
-<h1>Welcome to the homepage</h1>
-<!-- ERB evaluate -->
+<div class="header">
+  <img src="images/pokeball.png" alt="">
+  <h1>Welcome to the Pokedex</h1>
+</div>
+  <!-- ERB evaluate -->
 <% @post.each do |post| %>
 <div>
-  <h3><a href="/pokemon/<%= post.id %>"><%= post.title %></a></h3>
-  <p><%= post.post_body %></p>
+  <h3><a href="/pokemon/<%= post.id %>"><%= post.name %></a></h3>
+  <p><%= post.species %></p>
 </div>
 <% end %>

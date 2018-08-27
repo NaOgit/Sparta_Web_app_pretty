@@ -1,21 +1,18 @@
 class Post
-  attr_accessor(:id, :name, :type)
+  attr_accessor(:id, :name, :type, :species, :abilities, :description)
   # A method to connect to database
   def self.open_connection
     # Tell it to go to the correct database
     conn = PG.connect(dbname: "pokemon")
   end
-  # Save information
-  # Only the model can deal with the storage; get things saved correctly
+
   def save
-    # Run from an instance method
-    # Refer back to the whole class
     conn = Post.open_connection
 
     if (!self.id)
-      sql = "INSERT INTO post (name, type) VALUES ('#{self.name}', '#{self.type}')"
+      sql = "INSERT INTO post (name, type, species, abilities, description) VALUES ('#{self.name}', '#{self.type}', '#{self.species}', '#{self.abilities}', '#{self.description}')"
     else
-      sql = "UPDATE post SET name='#{self.name}', type='#{self.type}' WHERE id = #{self.id}"
+      sql = "UPDATE post SET name='#{self.name}', type='#{self.type}', species='#{self.species}', abilities='#{self.abilities}', description='#{self.description}' WHERE id = #{self.id}"
     end
 
     conn.exec(sql)
@@ -23,12 +20,9 @@ class Post
 
   # Get all posts and return them back
   def self.all
-    # Run method and go to database
-    # create a connection
-    # Run from class method from an object
     conn = self.open_connection
 
-    sql = "SELECT id, name, type FROM post ORDER BY id"
+    sql = "SELECT id, name, type, species FROM post ORDER BY id"
 
     results = conn.exec(sql)
     # loop through return data
@@ -67,8 +61,11 @@ class Post
     post = Post.new
 
     post.id = post_data['id']
-    post.title = post_data['name']
-    post.post_body = post_data['type']
+    post.name = post_data['name']
+    post.type = post_data['type']
+    post.species = post_data['species']
+    post.abilities = post_data['abilities']
+    post.description = post_data['description']
 
     post
   end
